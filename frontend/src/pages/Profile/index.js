@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import logoImg from "../../assets/logo.svg";
 import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
-import api from "../../services/api";
+
 import "./styles.css";
+
+import logoImg from "../../assets/logo.svg";
+import api from "../../services/api";
 
 export default function Profile() {
   const [incidents, setIncidents] = useState([]);
@@ -39,11 +41,8 @@ export default function Profile() {
           Authorization: ongId
         }
       });
-
       setIncidents(incidents.filter(incident => incident.id !== id));
-    } catch (err) {
-      alert("Erro ao deletar o caso");
-    }
+    } catch (error) { }
   }
 
   function handleLogout() {

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
+import { toast } from 'react-toastify';
 
 import "./styles.css";
 
 import api from "../../services/api";
-
 import logoImg from "../../assets/logo.svg";
 
 export default function Register() {
@@ -30,13 +30,15 @@ export default function Register() {
 
     try {
       const response = await api.post("/ongs", data);
+      const id = response.data.id;
+      toast.success(`Seu ID de acesso: ${id}`,
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: false
+        })
 
-      alert(`Seu ID de acesso: ${response.data.id}`);
-
-      history.push("/");
-    } catch (err) {
-      alert("Erro no cadastro, tente novamente");
-    }
+      history.push(`/${id}`);
+    } catch (error) { }
   }
 
   return (

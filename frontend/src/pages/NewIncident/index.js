@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 
-import api from "../../services/api";
-
 import "./styles.css";
 
+import api from "../../services/api";
 import logoImg from "../../assets/logo.svg";
 
 export default function NewIncident() {
@@ -25,16 +24,13 @@ export default function NewIncident() {
       description,
       value
     };
-
     try {
       await api.post("/incidents", data, {
         headers: { Authorization: ongId }
       });
 
       history.push("/profile");
-    } catch (err) {
-      alert("Erro no cadastro, tente novamente");
-    }
+    } catch (error) { }
   }
   return (
     <div className="new-incident-container">

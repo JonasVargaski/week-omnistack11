@@ -9,13 +9,12 @@ import api from "../../services/api";
 import "./styles.css";
 
 export default function Logon() {
-  const [id, setId] = useState("");
+  const [id, setId] = useState('');
 
   const history = useHistory();
 
   async function handleLogin(e) {
     e.preventDefault();
-
     try {
       const { data } = await api.post("/sessions", { id });
 
@@ -23,9 +22,7 @@ export default function Logon() {
       localStorage.setItem("ongName", data.name);
 
       history.push("/profile");
-    } catch (err) {
-      alert("Falha no login, tente novamente.");
-    }
+    } catch (error) { }
   }
   return (
     <div className="logon-container">
@@ -34,7 +31,6 @@ export default function Logon() {
 
         <form onSubmit={handleLogin}>
           <h1> Faça seu logon </h1>
-
           <input
             placeholder="Sua ID"
             value={id}
