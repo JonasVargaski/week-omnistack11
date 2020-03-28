@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Logon from "./pages/Logon";
 import Register from "./pages/Register";
@@ -14,6 +14,7 @@ export default function Routes() {
         <Route path="/register" component={Register} exact />
         <Route path="/profile" component={Profile} exact />
         <Route path="/incidents/new" component={NewIncident} exact />
+        <Route path="/*" component={() => <Redirect to='/' />} />
       </Switch>
     </BrowserRouter>
   );

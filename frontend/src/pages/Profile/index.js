@@ -84,7 +84,7 @@ export default function Profile() {
               type="button"
               onClick={() => handleDeleteIncident(incident.id)}
             >
-              <FiTrash2 size={20} color="#a8a8b3" />
+              <FiTrash2 size={23} color="#a8a8b3" />
             </button>
           </li>
         ))}

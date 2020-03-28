@@ -37,7 +37,7 @@ export default function Register() {
           autoClose: false
         })
 
-      history.push(`/${id}`);
+      history.push('/');
     } catch (error) { }
   }
 
