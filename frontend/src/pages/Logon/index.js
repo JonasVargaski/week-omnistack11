@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
+import { injectIntl } from 'react-intl';
 
 import heroesImg from "../../assets/heroes.png";
 import logoImg from "../../assets/logo.svg";
@@ -8,7 +9,7 @@ import api from "../../services/api";
 
 import "./styles.css";
 
-export default function Logon() {
+function Logon({ intl }) {
   const [id, setId] = useState('');
 
   const history = useHistory();
@@ -30,18 +31,18 @@ export default function Logon() {
         <img src={logoImg} alt="Be The Hero" />
 
         <form onSubmit={handleLogin}>
-          <h1> Faça seu logon </h1>
+          <h1> {intl.formatMessage({ id: 'login.message' })}</h1>
           <input
-            placeholder="Sua ID"
+            placeholder={intl.formatMessage({ id: 'login.input.placeholder' })}
             value={id}
             onChange={e => setId(e.target.value)}
           />
           <button className="button" type="submit">
-            Entrar
+            {intl.formatMessage({ id: 'login.button.enter' })}
           </button>
           <Link to="/register" className="back-link">
             <FiLogIn size={16} color="#e02041" />
-            Não tenho cadastro
+            {intl.formatMessage({ id: 'login.button.register' })}
           </Link>
         </form>
       </section>
@@ -49,3 +50,5 @@ export default function Logon() {
     </div>
   );
 }
+
+export default injectIntl(Logon);
