@@ -4,6 +4,8 @@ function getCurrency(locale) {
       return 'BRL';
     case 'en-US':
       return 'USD';
+    case 'en-ES':
+      return 'EUR';
     default:
       return '$'
   }
