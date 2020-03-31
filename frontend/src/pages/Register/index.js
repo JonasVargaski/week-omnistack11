@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
+import { injectIntl } from 'react-intl';
 import { toast } from 'react-toastify';
 
 import "./styles.css";
@@ -8,7 +9,7 @@ import "./styles.css";
 import api from "../../services/api";
 import logoImg from "../../assets/logo.svg";
 
-export default function Register() {
+function Register({ intl }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
@@ -31,7 +32,7 @@ export default function Register() {
     try {
       const response = await api.post("/ongs", data);
       const id = response.data.id;
-      toast.success(`Seu ID de acesso: ${id}`,
+      toast.success(`${intl.formatMessage({ id: 'register.toast-your-id-acess' })}: ${id}`,
         {
           position: toast.POSITION.TOP_CENTER,
           autoClose: false
@@ -46,21 +47,20 @@ export default function Register() {
       <div className="content">
         <section>
           <img src={logoImg} alt="Be The Hero" />
-          <h1>Cadastro</h1>
+          <h1>{intl.formatMessage({ id: 'register' })}</h1>
           <p>
-            Faça seu cadastro, entre na plataforma e ajude pessoas a encontrar
-            os casos da sua ONG
+            {intl.formatMessage({ id: 'register.description' })}
           </p>
 
           <Link to="/" className="back-link">
             <FiArrowLeft size={16} color="#e02041" />
-            Não tenho cadastro
+            {intl.formatMessage({ id: 'register.already-have-registration' })}
           </Link>
         </section>
 
         <form onSubmit={handleRegister}>
           <input
-            placeholder="Nome da ONG"
+            placeholder={intl.formatMessage({ id: 'register.input.name-ong' })}
             value={name}
             onChange={e => setName(e.target.value)}
           />
@@ -77,7 +77,7 @@ export default function Register() {
           />
           <div className="input-group">
             <input
-              placeholder="Cidade"
+              placeholder={intl.formatMessage({ id: 'register.input.city' })}
               value={city}
               onChange={e => setCity(e.target.value)}
             />
@@ -90,10 +90,12 @@ export default function Register() {
           </div>
 
           <button className="button" type="submit">
-            Cadastrar
+            {intl.formatMessage({ id: 'register' })}
           </button>
         </form>
       </div>
     </div>
   );
 }
+
+export default injectIntl(Register)

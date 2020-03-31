@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiPower, FiTrash2 } from "react-icons/fi";
+import { injectIntl } from 'react-intl';
 
 import "./styles.css";
 
 import logoImg from "../../assets/logo.svg";
 import api from "../../services/api";
+import formatCurrency from '../../utils/formatCurrency';
 
-export default function Profile() {
+function Profile({ intl }) {
   const [incidents, setIncidents] = useState([]);
 
   const ongName = localStorage.getItem("ongName");
@@ -23,16 +25,13 @@ export default function Profile() {
 
       const incidentsMap = data.map(incident => ({
         ...incident,
-        formattedValue: Intl.NumberFormat("pt-br", {
-          style: "currency",
-          currency: "BRL"
-        }).format(incident.value)
+        formattedValue: formatCurrency(incident.value, intl.locale)
       }))
 
       setIncidents(incidentsMap);
     }
     loadIncidents()
-  }, [ongId]);
+  }, [ongId, intl.locale]);
 
   async function handleDeleteIncident(id) {
     try {
@@ -53,10 +52,10 @@ export default function Profile() {
     <div className="profile-container">
       <header>
         <img src={logoImg} alt="Be The Hero" />
-        <span>Bem vinda, {ongName}</span>
+        <span>{intl.formatMessage({ id: 'profile.welcome' })}, {ongName}</span>
 
         <Link to="/incidents/new" className="button">
-          Cadastrar novo caso
+          {intl.formatMessage({ id: 'profile.register-new-case' })}
         </Link>
 
         <button type="button" onClick={handleLogout}>
@@ -64,18 +63,18 @@ export default function Profile() {
         </button>
       </header>
 
-      <h1> Casos cadastrados</h1>
+      <h1> {intl.formatMessage({ id: 'profile.register-cases' })}</h1>
 
       <ul>
         {incidents.map(incident => (
           <li key={incident.id}>
-            <strong>CASO:</strong>
+            <strong>{intl.formatMessage({ id: 'common.case' })}:</strong>
             <p>{incident.title}</p>
 
-            <strong>DESCRIÇÃO:</strong>
+            <strong>{intl.formatMessage({ id: 'common.description' })}:</strong>
             <p>{incident.description}</p>
 
-            <strong>VALOR:</strong>
+            <strong>{intl.formatMessage({ id: 'common.value' })}:</strong>
             <p>
               {incident.formattedValue}
             </p>
@@ -92,3 +91,5 @@ export default function Profile() {
     </div>
   );
 }
+
+export default injectIntl(Profile);

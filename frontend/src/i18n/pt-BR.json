@@ -2,5 +2,21 @@
   "login.message": "Faça seu Login",
   "login.input.placeholder": "Sua ID",
   "login.button.enter": "Entrar",
-  "login.button.register": "Não tem Cadastro"
+  "login.button.register": "Não tem Cadastro",
+  "register.toast-your-id-acess": "Seu ID de acesso:",
+  "register": "Registrar",
+  "register.description": "Faça seu cadastro, entre na plataforma e ajude pessoas a encontrar os casos da sua ONG",
+  "register.already-have-registration": "Já possuo cadastro",
+  "register.input.name-ong": "Nome da ONG",
+  "register.input.city": "Cidade",
+  "profile.welcome": "Bem vindo",
+  "profile.register-cases": "Casos cadastrados",
+  "profile.register-new-case": "Cadastrar novo caso",
+  "common.case": "Caso",
+  "common.description": "Descrição",
+  "common.value": "Valor",
+  "incident.default.description": "Descreva o caso detalhadamente para encontrar um herói para resolver isso",
+  "incident.back-to-home": "Voltar para listagem de casos",
+  "incident.input.title-case": "Titulo do caso",
+  "incident.input.value": "Valor"
 }

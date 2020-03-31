@@ -2,5 +2,21 @@
   "login.message": "Make your Login",
   "login.input.placeholder": "Your ID",
   "login.button.enter": "Enter",
-  "login.button.register": "Does not have registration"
+  "login.button.register": "Does not have registration",
+  "register.toast-your-id-acess": "Your acess ID ",
+  "register": "Register",
+  "register.description": "Register, enter the platform and help people find the cases of your ONG",
+  "register.already-have-registration": "Already have registration",
+  "register.input.name-ong": "ONG name",
+  "register.input.city": "City",
+  "profile.welcome": "Welcome",
+  "profile.register-cases": "Registered cases",
+  "profile.register-new-case": "Register new case",
+  "common.case": "Case",
+  "common.description": "Description",
+  "common.value": "Value",
+  "incident.default.description": "Describe the case in detail to find a hero to solve it",
+  "incident.back-to-home": "Back to case list",
+  "incident.input.title-case": "Case title",
+  "incident.input.value": "Value"
 }
