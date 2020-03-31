@@ -17,6 +17,5 @@
   "common.value": "Value",
   "incident.default.description": "Describe the case in detail to find a hero to solve it",
   "incident.back-to-home": "Back to case list",
-  "incident.input.title-case": "Case title",
-  "incident.input.value": "Value"
+  "incident.input.title-case": "Case title"
 }

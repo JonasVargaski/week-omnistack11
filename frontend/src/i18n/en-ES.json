@@ -1,0 +1,21 @@
+{
+  "login.message": "Iniciar sesión",
+  "login.input.placeholder": "Su ID",
+  "login.button.enter": "Registrate",
+  "login.button.register": "Sin registro",
+  "register.toast-your-id-acess": "Su ID de acceso",
+  "register": "Registrarse",
+  "register.description": "Regístrese, ingrese a la plataforma y ayude a las personas a encontrar los casos de su ONG",
+  "register.already-have-registration": "Ya tengo registro",
+  "register.input.name-ong": "Nombre de la ONG",
+  "register.input.city": "Pueblo",
+  "profile.welcome": "Bienvenido",
+  "profile.register-cases": "Casos registrados",
+  "profile.register-new-case": "Registrar nuevo caso",
+  "common.case": "Caso",
+  "common.description": "Descripción",
+  "common.value": "Valor",
+  "incident.default.description": "Describe el caso en detalle para encontrar un héroe que lo resuelva",
+  "incident.back-to-home": "Volver a la lista de casos",
+  "incident.input.title-case": "Título del caso"
+}

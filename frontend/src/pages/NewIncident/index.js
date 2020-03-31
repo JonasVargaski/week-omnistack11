@@ -62,7 +62,7 @@ function NewIncident({ intl }) {
             onChange={e => setDescription(e.target.value)}
           />
           <input
-            placeholder={intl.formatMessage({ id: 'incident.input.value' })}
+            placeholder={intl.formatMessage({ id: 'common.value' })}
             value={value}
             onChange={e => setValue(e.target.value)}
           />
